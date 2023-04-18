@@ -1,0 +1,14 @@
+{
+  "name": "Yeet",
+  "url": "http://localhost:3030/api/yeet",
+  "routes": [
+    {
+      "route": "/",
+      "method": "GET",
+      "description": "Get all users",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  ]
+}
