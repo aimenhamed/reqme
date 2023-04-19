@@ -5,6 +5,8 @@ import { fileURLToPath } from "url";
 import path from "path";
 import { parseReqmeFolderFromRoot } from "./common/parser.js";
 
+const rootPath = process.cwd();
+const reqmeFolderPath = path.join(rootPath, ".reqme");
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
@@ -16,10 +18,10 @@ app.get("/assets/*", function (req, res) {
 });
 
 app.get("/packs", (req, res) => {
-  const packs = parseReqmeFolderFromRoot();
+  const packs = parseReqmeFolderFromRoot(reqmeFolderPath);
   res.json(packs);
 });
 
 app.listen(7070, () => {
-  console.log("Server listening on port 7070");
+  console.log("reqme running in http://localhost:7070");
 });

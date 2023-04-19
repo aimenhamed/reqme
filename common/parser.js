@@ -28,8 +28,12 @@ function parseReqmeFolder(folderPath) {
   return packs;
 }
 
-export function parseReqmeFolderFromRoot() {
-  const rootPath = process.cwd();
-  const reqmeFolderPath = path.join(rootPath, ".reqme");
-  return parseReqmeFolder(reqmeFolderPath);
+export function parseReqmeFolderFromRoot(path) {
+  if (!path) {
+    const rootPath = process.cwd();
+    const reqmeFolderPath = path.join(rootPath, ".reqme");
+    return parseReqmeFolder(reqmeFolderPath);
+  }
+
+  return parseReqmeFolder(path);
 }
