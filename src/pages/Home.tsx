@@ -6,9 +6,13 @@ export default function Home() {
   const [packs, setPacks] = useState<Pack[]>([]);
   useEffect(() => {
     const getPacks = async () => {
-      const res = await fetch("/packs");
-      const json = await res.json();
-      setPacks(json);
+      try {
+        const res = await fetch("/packs");
+        const json = await res.json();
+        setPacks(json);
+      } catch {
+        console.log("error");
+      }
     };
 
     getPacks();
@@ -17,7 +21,7 @@ export default function Home() {
     <>
       <h1>reqme</h1>
       {packs.map((pack) => (
-        <PackCard pack={pack} />
+        <PackCard key={pack.name} pack={pack} />
       ))}
     </>
   );
