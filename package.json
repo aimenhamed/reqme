@@ -1,7 +1,7 @@
 {
   "name": "reqme",
   "private": false,
-  "version": "0.1.2",
+  "version": "0.1.1",
   "type": "module",
   "main": "reqme.js",
   "bin": {
@@ -13,8 +13,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "release:minor": "",
-    "release:major": ""
+    "release:patch": "npm version patch && npm run build && npm publish",
+    "release:minor": "npm version minor && npm run build && npm publish",
+    "release:major": "npm version major && npm run build && npm publish"
   },
   "dependencies": {
     "express": "^4.18.2"
